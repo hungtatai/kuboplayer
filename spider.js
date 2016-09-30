@@ -19,7 +19,7 @@ class KuboSpider {
         cb({
           title: $(".vshow h2").text().trim(),
           img: $(".vpic img").attr("src"),
-          flv: $("#0_FLV58 a").toArray().map((val, idx, arr) => { 
+          flv: $("[id^=0_FLV] a").toArray().map((val, idx, arr) => { 
             return {
               src: `http://www.123kubo.com/${$(val).attr("href")}`,
               title: $(val).text().trim()
@@ -34,7 +34,7 @@ class KuboSpider {
 
 
 var ks = new KuboSpider();
-ks.fetchVOD("http://www.123kubo.com/vod-read-id-83804.html", (result) => {
+ks.fetchVOD("http://www.123kubo.com/vod-read-id-61033.html", (result) => {
   console.log(result)
 })
 
