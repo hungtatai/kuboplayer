@@ -28,7 +28,6 @@
         加入清單
       </a>
     </p>
-
   </div>
 </div>
 
@@ -61,9 +60,7 @@
 </template>
 
 <script>
-  import Card from './MainPageView/Card'
   import CardContainer from './MainPageView/CardContainer'
-
   export default {
     components: {
       CardContainer
