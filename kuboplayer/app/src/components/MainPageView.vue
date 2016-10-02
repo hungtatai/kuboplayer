@@ -19,17 +19,7 @@
 
 <br />
 
-
-<div class="container">
-  <div class="notification">
-    <p class="control has-addons">
-      <input class="input is-expanded is-medium" type="text" placeholder="http://www.123kubo.com/vod-read-id-xxxxx.html">
-      <a class="button is-medium is-primary">
-        加入清單
-      </a>
-    </p>
-  </div>
-</div>
+<search-container></search-container>
 
 
 <div class="container">
@@ -61,9 +51,11 @@
 
 <script>
   import CardContainer from './MainPageView/CardContainer'
+  import SearchContainer from './MainPageView/SearchContainer'
   export default {
     components: {
-      CardContainer
+      CardContainer,
+      SearchContainer
     },
     name: 'main-page'
   }
