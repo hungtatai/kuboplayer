@@ -1,4 +1,4 @@
-<style>
+<style scoped>
 
 </style>
 
@@ -53,50 +53,7 @@
 </div>
 
 
-<div class="container">
-  <div class="notification">
-    <div class="columns">
-
-
-<div class="column is-one-quarter ">
-  <div class="card is-fullwidth vod-card">
-    <figure class="image is-1by1">
-      <img src="http://www.123kubo.com/movieimg/2013-08/520ff824a403a.jpg" alt="">
-    </figure>
-    <div class="card-content">
-      <div class="content is-medium"">
-        <strong>超能力者齊木楠雄的災難 週播版</strong>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-<div class="column is-one-quarter">
-  <div class="card is-fullwidth vod-card">
-    <figure class="image is-1by1">
-      <img src="http://www.123kubo.com/movieimg/2013-08/520ff824a403a.jpg" alt="">
-    </figure>
-    <div class="card-content">
-      <div class="content is-medium"">
-        <strong>超能力者齊木楠雄的災難 週播版</strong>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-    </div>
-  </div>
-</div>
-
+<card-container></card-container>
 
 
 
@@ -104,5 +61,12 @@
 </template>
 
 <script>
-  export default { }
+  import Cards from './MainPageView/Cards'
+
+  export default {
+    components: {
+      Cards
+    },
+    name: 'main-page'
+  }
 </script>

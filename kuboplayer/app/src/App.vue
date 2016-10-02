@@ -4,9 +4,8 @@
   @import url('bulma/css/bulma.css');
   //@import url('main.css')
 
-
-.vod-card {
-  background: black;
+.vod-card{
+  
 }
 .vod-card:hover {
   box-shadow: 0 0 4px;
