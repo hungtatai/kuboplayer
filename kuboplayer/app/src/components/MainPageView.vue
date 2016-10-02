@@ -78,6 +78,7 @@
     methods: {
       search: function () {
         console.log(this.fetchURL)
+        this.$broadcast('add-card', {title: this.fetchURL})
         this.fetchURL = ''
       }
     },
