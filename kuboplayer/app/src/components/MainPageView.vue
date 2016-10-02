@@ -61,11 +61,12 @@
 </template>
 
 <script>
-  import Cards from './MainPageView/Cards'
+  import Card from './MainPageView/Card'
+  import CardContainer from './MainPageView/CardContainer'
 
   export default {
     components: {
-      Cards
+      CardContainer
     },
     name: 'main-page'
   }

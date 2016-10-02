@@ -14,7 +14,7 @@
       </card>
 
       <card
-        title="超能力者齊木楠雄的災難 !!~~!"
+        title="超能力者齊木楠雄的災難 =!!~~!"
         img="http://www.123kubo.com/movieimg/2013-08/520ff824a403a.jpg"
       >
       </card>
@@ -24,3 +24,15 @@
 </div>
 
 </template>
+
+
+<script>
+  import Card from './Card'
+
+  export default {
+    components: {
+      Card
+    },
+    name: 'card-container'
+  }
+</script>
