@@ -7,7 +7,7 @@
 <div class="column is-one-quarter">
   <div class="card is-fullwidth vod-card">
     <figure class="image is-1by1">
-      <img src="{{ img }}" alt="">
+      <img :src="img" alt="">
     </figure>
     <div class="card-content">
       <div class="content is-medium"">
