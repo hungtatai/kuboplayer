@@ -41,6 +41,11 @@
         ]
       }
     },
+    events: {
+      'add-card': (card) => {
+        this.cards.push(card)
+      }
+    },
     name: 'card-container'
   }
 </script>
