@@ -19,8 +19,23 @@
 
 <br />
 
-<search-container></search-container>
-
+<div class="container">
+  <div class="notification">
+    <p class="control has-addons">
+      <input 
+        v-model="fetchURL"
+        @keyup.enter="search"
+        class="input is-expanded is-medium" 
+        type="text" 
+        placeholder="http://www.123kubo.com/vod-read-id-xxxxx.html">
+      <button 
+        @click="search"
+        class="button is-medium is-primary">
+        加入清單
+      </button>
+    </p>
+  </div>
+</div>
 
 <div class="container">
   <div class="notification">
@@ -51,11 +66,20 @@
 
 <script>
   import CardContainer from './MainPageView/CardContainer'
-  import SearchContainer from './MainPageView/SearchContainer'
   export default {
     components: {
-      CardContainer,
-      SearchContainer
+      CardContainer
+    },
+    data () {
+      return {
+        fetchURL: ''
+      }
+    },
+    methods: {
+      search: function () {
+        console.log(this.fetchURL)
+        this.fetchURL = ''
+      }
     },
     name: 'main-page'
   }
