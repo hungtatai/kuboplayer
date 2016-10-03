@@ -69,7 +69,7 @@
 <script>
   // import electron from 'electron'
   import CardContainer from './MainPageView/CardContainer'
-  import LibPort from './LibPort'
+  import LibPortHandler from './LibPortHandler'
 
   export default {
     components: {
@@ -92,7 +92,7 @@
         console.log(__dirname)
         // const KuboSpider = electron.remote.TestFunc
         // let spider = KuboSpider()
-        // LibPort.fetchVOD('http://www.123kubo.com/vod-read-id-61033.html', (result) => { console.log(result) })
+        LibPortHandler.fetchVOD('http://www.123kubo.com/vod-read-id-61033.html', (result) => { console.log(result) })
 
         console.log(LibPort)
         this.fetchURL = ''
