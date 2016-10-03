@@ -69,7 +69,7 @@
 <script>
   // import electron from 'electron'
   import CardContainer from './MainPageView/CardContainer'
-  import LibPortHandler from './LibPortHandler'
+  import LibPort from './LibPort'
 
   export default {
     components: {
@@ -83,12 +83,16 @@
     methods: {
       search: function () {
         console.log(this.fetchURL)
-        LibPortHandler.fetchVOD(this.fetchURL, (result) => {
+        if (this.fetchURL.trim() === '') {
+          return
+        }
+
+        LibPort.fetchVOD(this.fetchURL, (result) => {
           console.log(result)
           this.$broadcast('add-card', result)
         })
 
-        LibPortHandler.playVOD('http://www.123kubo.com/vod-play-id-86473-sid-2-pid-1.html')
+        // LibPort.playVOD('http://www.123kubo.com/vod-play-id-86473-sid-2-pid-1.html')
 
         this.fetchURL = ''
       }

@@ -5,7 +5,7 @@ const path = require('path')
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 
-const LibPort = require('./lib/LibPort')
+const LibPortHandler = require('./lib/LibPortHandler')
 
 let mainWindow
 let config = {}
@@ -53,7 +53,7 @@ function createWindow () {
 
   
   // port library  
-  mainWindow.LibPort = LibPort
+  mainWindow.LibPort = LibPortHandler
 
   console.log('mainWindow opened')
 }
