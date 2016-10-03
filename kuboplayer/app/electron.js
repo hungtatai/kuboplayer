@@ -5,7 +5,7 @@ const path = require('path')
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 
-const KuboSpider = require('./lib/KuboSpider')
+const LibPort = require('./lib/LibPort')
 
 let mainWindow
 let config = {}
@@ -52,11 +52,8 @@ function createWindow () {
   })
 
   
-  // port fetchVOD  
-  mainWindow.fetchVOD = (uri, cb) => {
-    let ks = new KuboSpider()
-    ks.fetchVOD(uri, cb)
-  } 
+  // port library  
+  mainWindow.LibPort = LibPort
 
   console.log('mainWindow opened')
 }
