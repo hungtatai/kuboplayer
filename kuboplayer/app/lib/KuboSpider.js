@@ -1,9 +1,9 @@
 
 'use strict'
 
-const path = require('path');
-module.paths.push(path.resolve('node_modules'));
-module.paths.push(path.resolve('../node_modules'));
+const path = require('path')
+module.paths.push(path.resolve('node_modules'))
+module.paths.push(path.resolve('../node_modules'))
 
 const requests = require('requests')
 const Crawler = require('crawler')

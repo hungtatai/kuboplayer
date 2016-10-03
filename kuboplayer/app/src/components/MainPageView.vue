@@ -83,18 +83,13 @@
     methods: {
       search: function () {
         console.log(this.fetchURL)
-        this.$broadcast('add-card', {title: this.fetchURL})
-        // shell.openExternal('http://google.com')
-        // const BrowserWindow = electron.remote.BrowserWindow
-        // console.log(electron)
-        // var w = new BrowserWindow({width: 800, height: 600})
-        // w.loadURL('http://google.com')
-        console.log(__dirname)
-        // const KuboSpider = electron.remote.TestFunc
-        // let spider = KuboSpider()
-        LibPortHandler.fetchVOD('http://www.123kubo.com/vod-read-id-61033.html', (result) => { console.log(result) })
+        LibPortHandler.fetchVOD(this.fetchURL, (result) => {
+          console.log(result)
+          this.$broadcast('add-card', result)
+        })
 
-        console.log(LibPort)
+        LibPortHandler.playVOD('http://www.123kubo.com/vod-play-id-86473-sid-2-pid-1.html')
+
         this.fetchURL = ''
       }
     },
