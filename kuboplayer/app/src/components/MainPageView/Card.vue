@@ -10,7 +10,7 @@
       <img :src="img" alt="">
     </figure>
     <div class="card-content">
-      <div class="content is-medium"">
+      <div class="content is-medium">
         <strong>{{ title }}</strong>
       </div>
     </div>

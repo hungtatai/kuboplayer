@@ -1,3 +1,5 @@
+
+
 <style scoped>
 
 </style>
@@ -65,7 +67,9 @@
 </template>
 
 <script>
+  import electron from 'electron'
   import CardContainer from './MainPageView/CardContainer'
+
   export default {
     components: {
       CardContainer
@@ -79,6 +83,16 @@
       search: function () {
         console.log(this.fetchURL)
         this.$broadcast('add-card', {title: this.fetchURL})
+        // shell.openExternal('http://google.com')
+        // const BrowserWindow = electron.remote.BrowserWindow
+        // console.log(electron)
+        // var w = new BrowserWindow({width: 800, height: 600})
+        // w.loadURL('http://google.com')
+        console.log(__dirname)
+        // const KuboSpider = electron.remote.TestFunc
+        // let spider = KuboSpider()
+        electron.remote.getCurrentWindow().fetchVOD('http://www.123kubo.com/vod-read-id-61033.html', (result) => { console.log(result) })
+
         this.fetchURL = ''
       }
     },

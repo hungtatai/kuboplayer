@@ -21,7 +21,8 @@ let config = {
     asar: true,
     dir: path.join(__dirname, 'app'),
     icon: path.join(__dirname, 'app/icons/icon'),
-    ignore: /node_modules|src|index.ejs|icons/,
+    // ignore: /node_modules|src|index.ejs|icons/,
+    ignore: /src|index.ejs|icons/,
     out: path.join(__dirname, 'builds'),
     overwrite: true,
     platform: process.env.PLATFORM_TARGET || 'all'

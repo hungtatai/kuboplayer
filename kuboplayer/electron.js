@@ -5,12 +5,12 @@ const path = require('path')
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 
-const KuboSpider = require('./lib/KuboSpider')
-
 let mainWindow
 let config = {}
 
-
+exports.withLocalCallback = () => {
+  return [1, 2, 3].map(x => x + 1)
+}
 
 
 if (process.env.NODE_ENV === 'development') {
@@ -50,13 +50,6 @@ function createWindow () {
   mainWindow.on('closed', () => {
     mainWindow = null
   })
-
-  
-  // port fetchVOD  
-  mainWindow.fetchVOD = (uri, cb) => {
-    let ks = new KuboSpider()
-    ks.fetchVOD(uri, cb)
-  } 
 
   console.log('mainWindow opened')
 }

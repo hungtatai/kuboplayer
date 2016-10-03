@@ -4,7 +4,7 @@
   "description": "a kubo player",
   "main": "electron.js",
   "dependencies": {
-    "bulma": "^0.2.1",
+    "crawler": "^0.4.3",
     "vue": "^1.0.26",
     "vue-electron": "^1.0.0",
     "vue-resource": "^0.7.0",
