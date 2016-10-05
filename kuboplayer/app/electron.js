@@ -29,7 +29,7 @@ function createWindow () {
     height: 768,
     width: 1024,
     webPreferences: {
-      devTools: false
+      devTools: true
     }
   })
 

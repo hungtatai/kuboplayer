@@ -98,6 +98,22 @@
       showSeriesDialog (idx) {
         console.log('showSeriesDialog ' + idx)
         this.targetCard = this.cards[idx]
+
+        if ( new Date() - new Date(this.targetCard.updateAt) > 3600 ) {
+          console.log('update series')
+          LibPort.fetchVOD(`http://www.123kubo.com/vod-read-id-${this.targetCard.id}.html`, (result) => {
+            console.log(result)
+            if (typeof result['id'] === 'undefined') {
+              // error
+              console.log(result.error)
+            } else {
+              // this.$broadcast('add-card', result)
+              this.updateCard(result)
+              this.targetCard = result
+            }
+          })
+        }
+
         this.activeDialog = true
       },
       play (flv) {
