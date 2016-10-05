@@ -29,6 +29,7 @@ class KuboSpider {
             updatedAt: new Date(),
             title: $('.vshow h2').text().trim(),
             img: $('.vpic img').attr('src'),
+            seen: [],
             flv: $('[id^=0_FLV] a').toArray().map((val, idx, arr) => {
               return {
                 src: `http://www.123kubo.com/${$(val).attr('href')}`,

@@ -10,9 +10,10 @@ class VodStorage {
     title: "xx",
     img: "http://..",
     flv: [
-      {title: "1", src: "http://.."},
-      {title: "2", src: "http://.."}
-    ]
+      {title: "s1", src: "http://.."},
+      {title: "s2", src: "http://.."}
+    ],
+    seen: ["s1"]
   }
   */
 

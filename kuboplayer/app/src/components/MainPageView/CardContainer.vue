@@ -29,9 +29,10 @@
       class="columns">
 
       <div 
+        @click="play(flv)"
         v-for="flv in targetCard.flv | limitBy 4 nCol*4"
         class="column is-one-quarter">
-        <div class="series-block">{{ flv.title }}</div>
+        <div class="series-block" :class="{'seen-series-block': isSeen(targetCard, flv.title)}">{{ flv.title }}</div>
       </div>
 
     </div>
@@ -72,6 +73,8 @@
 <script>
   import Card from './Card'
   import SeriesDialog from './SeriesDialog'
+  import LibPort from '../LibPort'
+
   const VodStorage = require('../VodStorage')
 
   export default {
@@ -96,15 +99,24 @@
         console.log('showSeriesDialog ' + idx)
         this.targetCard = this.cards[idx]
         this.activeDialog = true
+      },
+      play (flv) {
+        LibPort.playVOD(flv.src)
+        this.targetCard.seen.push(flv.title)
+        this.updateCard(this.targetCard)
+      },
+      updateCard (card) {
+        VodStorage.update(card)
+        this.cards = VodStorage.all
+      },
+      isSeen (card, seriesTitle) {
+        return card.seen.indexOf(seriesTitle) !== -1
       }
     },
     events: {
       'add-card': function (card) {
         console.log('add-card')
-        console.log(this)
-        console.log(VodStorage)
-        VodStorage.update(card)
-        this.cards = VodStorage.all
+        this.updateCard(card)
       }
     },
     name: 'card-container'

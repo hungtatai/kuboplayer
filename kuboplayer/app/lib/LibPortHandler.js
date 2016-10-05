@@ -8,6 +8,7 @@ module.exports = {
     ks.fetchVOD(uri, cb)
   },
   playVOD: (uri) => {
+    console.log('playVOD')
     VODPlayer.open(uri)
   }
 }
