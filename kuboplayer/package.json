@@ -59,6 +59,7 @@
   "dependencies": {
     "bulma": "^0.2.1",
     "crawler": "^0.4.3",
+    "lodash": "^4.16.3",
     "requests": "^0.1.7"
   }
 }

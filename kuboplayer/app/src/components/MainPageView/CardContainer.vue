@@ -72,6 +72,7 @@
 <script>
   import Card from './Card'
   import SeriesDialog from './SeriesDialog'
+  const VodStorage = require('../VodStorage')
 
   export default {
     components: {
@@ -80,10 +81,11 @@
     },
     data () {
       return {
-        cards: [
-          {img: 'http://www.123kubo.com/movieimg/2013-08/520ff824a403a.jpg', title: '超能力者齊木楠雄的災難1', flv: [{title: '1', src: 's'}, {title: '3', src: 's'}]},
-          {img: 'http://www.123kubo.com/movieimg/2013-08/520ff824a403a.jpg', title: '超能力者齊木楠雄的災難2', flv: [{title: '2', src: 's'}]}
-        ],
+        // cards: [
+        //   {img: 'http://www.123kubo.com/movieimg/2013-08/520ff824a403a.jpg', title: '超能力者齊木楠雄的災難1', flv: [{title: '1', src: 's'}, {title: '3', src: 's'}]},
+        //   {img: 'http://www.123kubo.com/movieimg/2013-08/520ff824a403a.jpg', title: '超能力者齊木楠雄的災難2', flv: [{title: '2', src: 's'}]}
+        // ],
+        cards: VodStorage.all,
         activeDialog: false,
         dialogTitle: '',
         targetCard: null
@@ -98,7 +100,11 @@
     },
     events: {
       'add-card': function (card) {
-        this.cards.push(card)
+        console.log('add-card')
+        console.log(this)
+        console.log(VodStorage)
+        VodStorage.update(card)
+        this.cards = VodStorage.all
       }
     },
     name: 'card-container'

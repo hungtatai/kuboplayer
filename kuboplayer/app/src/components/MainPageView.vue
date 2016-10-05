@@ -89,7 +89,12 @@
 
         LibPort.fetchVOD(this.fetchURL, (result) => {
           console.log(result)
-          this.$broadcast('add-card', result)
+          if (typeof result['id'] === 'undefined') {
+            // error
+            console.log(result.error)
+          } else {
+            this.$broadcast('add-card', result)
+          }
         })
 
         // LibPort.playVOD('http://www.123kubo.com/vod-play-id-86473-sid-2-pid-1.html')
