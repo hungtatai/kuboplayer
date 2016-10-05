@@ -8,11 +8,6 @@ const BrowserWindow = electron.BrowserWindow
 let mainWindow
 let config = {}
 
-exports.withLocalCallback = () => {
-  return [1, 2, 3].map(x => x + 1)
-}
-
-
 if (process.env.NODE_ENV === 'development') {
   config = require('../config')
   config.url = `http://localhost:${config.port}`

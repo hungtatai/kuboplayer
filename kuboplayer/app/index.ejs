@@ -8,4 +8,14 @@
     <app></app>
     <!-- webpack builds are automatically injected -->
   </body>
+
+  <script>
+  const inputMenu = require('electron-input-menu');
+  const context = require('electron-contextmenu-middleware');
+
+  context.use(inputMenu);
+  context.activate();
+  
+  inputMenu.registerShortcuts();
+  </script>
 </html>
