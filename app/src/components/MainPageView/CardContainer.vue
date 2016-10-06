@@ -20,43 +20,10 @@
 </div>
 
 
-<series-dialog  :visible.sync="activeDialog" :title="targetCard.title" v-if="targetCard">
-<div class="container">
-  <div class="">
-    
-    <div
-      v-for="nCol in targetCard.flv.length/4" 
-      class="columns">
-
-      <div 
-        @click="play(flv)"
-        v-for="flv in targetCard.flv | limitBy 4 nCol*4"
-        class="column is-one-quarter">
-        <div class="series-block" :class="{'seen-series-block': isSeen(targetCard, flv.title)}">{{ flv.title }}</div>
-      </div>
-
-    </div>
-
-  </div>
-</div>
-</series-dialog>
+<series-dialog :visible.sync="activeDialog" :target-card.sync="targetCard"></series-dialog>
 
 
 <style>
-  .series-block {
-    padding: 10px 20px;
-    border-radius: 3px;
-    /* border: 1px solid rgba(74,74,74,0.3); */
-    background: #fafafa;
-  }
-  .series-block:hover {
-    box-shadow: 0 0 2px;
-    cursor: pointer;
-  }
-  .seen-series-block {
-    background: #ff3860;
-    color: white;
-  }
 
   .vod-card{
     
@@ -90,7 +57,6 @@
         // ],
         cards: VodStorage.all,
         activeDialog: false,
-        dialogTitle: '',
         targetCard: null
       }
     },
@@ -99,7 +65,12 @@
         console.log('showSeriesDialog ' + idx)
         this.targetCard = this.cards[idx]
 
-        if ( new Date() - new Date(this.targetCard.updateAt) > 3600 ) {
+        this.remoteUpdateCard()
+
+        this.activeDialog = true
+      },
+      remoteUpdateCard () {
+        if (new Date() - new Date(this.targetCard.updateAt) > 3600) {
           console.log('update series')
           LibPort.fetchVOD(`http://www.123kubo.com/vod-read-id-${this.targetCard.id}.html`, (result) => {
             console.log(result)
@@ -113,25 +84,15 @@
             }
           })
         }
-
-        this.activeDialog = true
-      },
-      play (flv) {
-        LibPort.playVOD(flv.src)
-        this.targetCard.seen.push(flv.title)
-        this.updateCard(this.targetCard)
       },
       updateCard (card) {
         VodStorage.update(card)
         this.cards = VodStorage.all
-      },
-      isSeen (card, seriesTitle) {
-        return card.seen.indexOf(seriesTitle) !== -1
       }
     },
     events: {
-      'add-card': function (card) {
-        console.log('add-card')
+      'update-card': function (card) {
+        console.log('update-card')
         this.updateCard(card)
       }
     },

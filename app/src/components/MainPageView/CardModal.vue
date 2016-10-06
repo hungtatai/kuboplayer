@@ -20,6 +20,8 @@
           <slot></slot>
         </section>
         <footer class="modal-card-foot">
+          <a class="button is-primary" @click="b1Click">{{ b1 }}</a>
+          <a class="button is-primary" @click="b2Click">{{ b2 }}</a>
         </footer>
       </div>
     </div>
@@ -34,11 +36,23 @@ export default {
       type: String,
       default: 'fade'
     },
-
     title: {
       type: String
+    },
+    b1: {
+      type: String,
+      default: 'b1Text'
+    },
+    b2: {
+      type: String,
+      default: 'b2Text'
+    },
+    b1Click: {
+      type: Function
+    },
+    b2Click: {
+      type: Function
     }
-
   },
 
   data () {

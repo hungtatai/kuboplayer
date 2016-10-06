@@ -70,7 +70,7 @@
             // error
             console.log(result.error)
           } else {
-            this.$broadcast('add-card', result)
+            this.$broadcast('update-card', result)
           }
         })
 
