@@ -44,7 +44,7 @@ function createWindow () {
       .then((name) => mainWindow.webContents.openDevTools())
       .catch((err) => console.log('An error occurred: ', err))
   } else {
-    mainWindow.webContents.openDevTools()
+    // mainWindow.webContents.openDevTools()
   }
 
   mainWindow.on('closed', () => {
