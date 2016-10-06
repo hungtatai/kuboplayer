@@ -86,6 +86,8 @@
       },
       deleteCardClick () {
         console.log('deleteCardClick')
+        this.visible = false
+        this.$dispatch('remove-card', this.targetCard)
       }
     },
     name: 'series-dialog'

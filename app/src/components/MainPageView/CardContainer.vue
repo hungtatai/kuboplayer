@@ -88,12 +88,20 @@
       updateCard (card) {
         VodStorage.update(card)
         this.cards = VodStorage.all
+      },
+      removeCard (card) {
+        VodStorage.remove(card)
+        this.cards = VodStorage.all
       }
     },
     events: {
       'update-card': function (card) {
         console.log('update-card')
         this.updateCard(card)
+      },
+      'remove-card': function (card) {
+        console.log('remove-card')
+        this.removeCard(card)
       }
     },
     name: 'card-container'

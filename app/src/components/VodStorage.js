@@ -28,13 +28,26 @@ class VodStorage {
     return []
   }
 
-  static fetch (vodId) {
+  static find (vodId) {
     return _.find(VodStorage.all, {id: vodId})
+  }
+
+  static findIndex (vodId) {
+    return _.findIndex(VodStorage.all, {id: vodId})
+  }
+
+  static remove (vodRaw) {
+    let oriIdx = VodStorage.findIndex(vodRaw.id)
+    if (oriIdx !== -1) {
+      let all = VodStorage.all
+      all.splice(oriIdx, 1)
+      localStorage.setItem(VodStorage.KEY, JSON.stringify(all))
+    }
   }
 
   static update (vodRaw) {
     let all = VodStorage.all
-    let oriIdx = _.findIndex(all, {id: vodRaw.id})
+    let oriIdx = VodStorage.findIndex(vodRaw.id)
     if (oriIdx !== -1) {
       // replace vod
       all.splice(oriIdx, 1, vodRaw)
